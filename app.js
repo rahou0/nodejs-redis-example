@@ -1,7 +1,12 @@
 var redis = require('redis');
 var client = redis.createClient({
-	url: 'redis://default:EHKDzUomJbqtaxuiRTxIqDuTkGvafsCS@:6379'
+	url: 'redis://default:EHKDzUomJbqtaxuiRTxIqDuTkGvafsCS@redis.railway.internal:6379'
 }); // creates a new redis client
+
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
+
 //check for connection
 client.on('connect',function(){
     console.log("connected");
