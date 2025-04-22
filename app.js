@@ -1,5 +1,7 @@
 var redis = require('redis');
-var client = redis.createClient(); // creates a new redis client
+var client = redis.createClient({
+	url: 'redis://alice:foobared@awesome.redis.server:6380'
+}); // creates a new redis client
 //check for connection
 client.on('connect',function(){
     console.log("connected");
